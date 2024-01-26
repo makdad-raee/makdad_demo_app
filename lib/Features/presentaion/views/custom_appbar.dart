@@ -37,10 +37,10 @@ class CustomAppar extends StatelessWidget {
               'Jam3yia Title',
               style: textStyle16.copyWith(color: Colors.white),
             ),
-            Spacer(),
+            const Spacer(),
             history
-                ? PaymentHistory()
-                : SizedBox(
+                ? const PaymentHistory()
+                : const SizedBox(
                     width: 1,
                   )
           ],

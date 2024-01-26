@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:makdad_demo_app/Features/presentaion/views/Section2/section2_home_view.dart';
 import 'package:makdad_demo_app/Features/presentaion/views/custom_appbar.dart';
-import 'package:makdad_demo_app/Features/presentaion/views/widgets/custom_home_view.part2.dart';
 import 'package:makdad_demo_app/Features/presentaion/views/widgets/custom_home_view_part1.dart';
-import 'package:makdad_demo_app/Features/presentaion/views/widgets/custom_pay_button.dart';
 import 'package:makdad_demo_app/core/utlies/constant.dart';
 
 class Screen5 extends StatelessWidget {
@@ -10,9 +9,9 @@ class Screen5 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    return  const Scaffold(
+    //     var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
+    return const Scaffold(
       backgroundColor: appBarColor,
       body: SingleChildScrollView(
         child: Column(
@@ -20,39 +19,34 @@ class Screen5 extends StatelessWidget {
             CustomAppar(),
             CustomHomeViewPart1(),
             TextScreen5(),
-            
-            
-             
-         
-           
           ],
         ),
       ),
     );
   }
 }
+
 class TextScreen5 extends StatelessWidget {
   const TextScreen5({super.key});
 
   @override
   Widget build(BuildContext context) {
-            var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
-    
+    var height = MediaQuery.of(context).size.height;
+    // var width = MediaQuery.of(context).size.width;
+
     return Container(
       color: defaultBackGroun,
       width: double.infinity,
       child: Column(
         children: [
-           const Text(
+          const Text(
             'Jam3yia Complted',
             style: textStyle20,
           ),
           SizedBox(
             height: height * 0.0247,
           ),
-          Text('Payout wason 1/8/2023'),
-         
+          const Text('Payout wason 1/8/2023'),
           SizedBox(
             height: height * 0.0211,
           ),
@@ -60,12 +54,23 @@ class TextScreen5 extends StatelessWidget {
           SizedBox(
             height: height * 0.04235,
           ),
-          Container(color: Colors.white,
-          height: height*0.078,)
-          
-              
+          Container(
+            color: Colors.white,
+            height: height * 0.078,
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const Section2HomeView(),
+              ));
+            },
+            child: Text(
+              "click here",
+              style: textStyle22.copyWith(color: Colors.red),
+            ),
+          ),
         ],
       ),
-    );;
+    );
   }
 }

@@ -10,7 +10,7 @@ final String? text1;
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
-    var width = MediaQuery.of(context).size.width;
+   // var width = MediaQuery.of(context).size.width;
     return Container(
       color: defaultBackGroun,
       width: double.infinity,

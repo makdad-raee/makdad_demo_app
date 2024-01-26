@@ -27,9 +27,15 @@ class CustomBodyUnderAppar extends StatelessWidget {
           ),
           Row(
             children: [
-              CustomRedButtonAndAmber(height: height, width: width,),
-              Spacer(),
-              amberButton??const SizedBox(width: 1,),
+              CustomRedButtonAndAmber(
+                height: height,
+                width: width,
+              ),
+              const Spacer(),
+              amberButton ??
+                  const SizedBox(
+                    width: 1,
+                  ),
             ],
           ),
           SizedBox(

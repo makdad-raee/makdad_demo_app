@@ -51,7 +51,10 @@ class FirstScreenBody extends StatelessWidget {
                       color: Colors.red,
                       child: const Text(
                         'NextScreen',
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                        ),
                       ))),
             ),
           ),
