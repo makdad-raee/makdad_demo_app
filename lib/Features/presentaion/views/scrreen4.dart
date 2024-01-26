@@ -13,32 +13,41 @@ class Screen4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBarColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const CustomAppar(),
-            const CustomHomeViewPart1(amberButton: PaymentDelayButton()),
-            const CustomHomeViewPart2(
-              text1: 'Next payment',
-              note: false,
-              text: Text(
-                '20 days remaining for the next payment!',
-                style: textStyle16,
-              ),
+      body: CustomScrollView(
+        slivers: [
+          const SliverList(
+            delegate: SliverChildListDelegate.fixed(
+              [
+                Column(
+                  children: [
+                    CustomAppar(),
+                    CustomHomeViewPart1(
+                        amberButton: PaymentDelayButton()),
+                    CustomHomeViewPart2(
+                      text1: 'Next payment',
+                      note: false,
+                      text: Text(
+                        '20 days remaining for the next payment!',
+                        style: textStyle16,
+                      ),
+                    ),
+                   
+                  ],
+                ),
+              ],
             ),
-            CustomPayButton(
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: CustomPayButton(
               onTap: () {
                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) =>const Screen5(),
+                  builder: (context) => const Screen5(),
                 ));
               },
             ),
-          Container(
-              color: Colors.white,
-              height: 30,
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

@@ -13,27 +13,40 @@ class HomeViewScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBarColor,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const CustomAppar(),
-            const CustomHomeViewPart1(),
-            const CustomHomeViewPart2(
-                text: Text('20 days remaining for your payout!',style: textStyle16,),),
-            CustomPayButton(
-              onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => const Screen3(),
-                ));
-              },
+      body: CustomScrollView(
+        slivers: [
+          const SliverList(
+            delegate: SliverChildListDelegate.fixed(
+              [
+                Column(
+                  children: [
+                    CustomAppar(),
+                    CustomHomeViewPart1(),
+                    CustomHomeViewPart2(
+                      text: Text(
+                        '20 days remaining for your payout!',
+                        style: textStyle16,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          
-             Container(
-              color: Colors.white,
-              height: 30,
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: CustomPayButton(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const Screen3(),
+                  ));
+                },
+              ),
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
