@@ -4,7 +4,8 @@ import 'package:makdad_demo_app/Features/presentaion/views/widgets/custom_red_bu
 import 'package:makdad_demo_app/core/utlies/constant.dart';
 
 class CustomBodyUnderAppar extends StatelessWidget {
-  const CustomBodyUnderAppar({super.key});
+  const CustomBodyUnderAppar({super.key, this.amberButton});
+  final Widget? amberButton;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,13 @@ class CustomBodyUnderAppar extends StatelessWidget {
           SizedBox(
             height: height * 0.024,
           ),
-          CustomRedButton(height: height, width: width),
+          Row(
+            children: [
+              CustomRedButtonAndAmber(height: height, width: width,),
+              Spacer(),
+              amberButton??const SizedBox(width: 1,),
+            ],
+          ),
           SizedBox(
             height: height * 0.027,
           ),
